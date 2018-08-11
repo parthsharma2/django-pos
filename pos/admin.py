@@ -2,6 +2,9 @@ from django.contrib import admin
 from .models import Product, Customer, Order, OrderItem
 
 
+admin.site.site_header = 'POS Administration'
+admin.site.site_title = 'POS Administration'
+
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'price')
 
