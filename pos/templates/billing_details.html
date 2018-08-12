@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title> {{name}} - Billing </title>
+{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="card-body">
+    <h5>{{ name }}</h5>
+    <p class="card-text">Balance: {{ balance }}</p>
+  </div>
+</div>
+{% endblock %}

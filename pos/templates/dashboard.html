@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>Dashboard - POS System</title>
+{% endblock %}
+
+{% block content %}
+  <h3 class="text-center">Dashboard</h3>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-header">
+          <h5>Billing</h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text">Clicking on the button below will lead you to the billing section.</p>
+          <a href="{% url 'billing' %}" class="btn btn-primary">Start Billing</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

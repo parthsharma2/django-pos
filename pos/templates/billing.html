@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>Billing - POS System</title>
+{% endblock %}
+
+{% block content %}
+<h3 class="text-center">Billing</h3>
+<div class="card">
+  <div class="card-body">
+    <form action="#" method="post"> {% csrf_token %}
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Enter Customer ID: </span>
+        </div>
+          <input class="form-control" type="customerID" name="customerID" placeholder="Customer ID"/>
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="submit">Go &raquo;</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
