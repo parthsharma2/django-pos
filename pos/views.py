@@ -12,5 +12,8 @@ def billing(request):
     else:
         cid = request.POST.get('customerID', None)
         customer = Customer.objects.filter(pk=cid)
-        context = {'name' : customer[0].name, 'balance' : customer[0].balance}
+        products = list(Product.objects.all())
+        context = { 'name' : customer[0].name,
+                    'balance' : customer[0].balance,
+                    'products': products }
         return render(request, 'billing_details.html', context)

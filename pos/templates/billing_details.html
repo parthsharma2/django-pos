@@ -7,11 +7,71 @@
 {% load static %}
 
 {% block content %}
-<div class="card">
-  <div class="card-body">
-    <img class="avatar img-thumbnail float-left img-fluid" src="{% static 'img/profile_placeholder_large.png' %}" />
-    <h5>{{ name }}</h5>
-    <p class="card-text">Balance: {{ balance }}</p>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <img class="avatar img-thumbnail float-left img-fluid" src="{% static 'img/profile_placeholder_large.png' %}" style="width: 200px; margin-right: 1em;"/>
+        <h5>{{ name }}</h5>
+        <p class="card-text">Balance: {{ balance }}</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h5>Add Products to Bill:</h5>
+      </div>
+      <div class="card-body">
+        {% for product in products %}
+          <a href="#" onclick="" class="btn btn-outline-secondary">{{ product.name }}</a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title"><strong>Order summary</strong></h4>
+              </div>
+              <div class="panel-body">
+                <div class="table-responsive">
+                  <table class="table table-condensed">
+                    <thead>
+                      <tr>
+                        <td><strong>Item</strong></td>
+                        <td class="text-center"><strong>Price</strong></td>
+                        <td class="text-center"><strong>Quantity</strong></td>
+                        <td class="text-right"><strong>Totals</strong></td>
+                      </tr>
+                    </thead>
+                  <tbody>
+                    {% for product in products %}
+                      <tr>
+                        <td>{{ product.name }}</td>
+                        <td class="text-center">₹{{ product.price }}</td>
+                        <td class="text-center">1</td>
+                        <td class="text-right">₹{{ product.price }}</td>
+                      </tr>
+                    {% endfor %}
+                      <tr>
+                        <td class="thick-line"></td>
+                        <td class="thick-line"></td>
+                        <td class="thick-line text-center"><strong>Total</strong></td>
+                        <td class="thick-line text-right">$685.99</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 {% endblock %}
