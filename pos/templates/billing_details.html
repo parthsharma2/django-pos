@@ -4,9 +4,12 @@
 <title> {{name}} - Billing </title>
 {% endblock %}
 
+{% load static %}
+
 {% block content %}
 <div class="card">
   <div class="card-body">
+    <img class="avatar img-thumbnail float-left img-fluid" src="{% static 'img/profile_placeholder_large.png' %}" />
     <h5>{{ name }}</h5>
     <p class="card-text">Balance: {{ balance }}</p>
   </div>

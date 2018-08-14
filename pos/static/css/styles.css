@@ -6,3 +6,8 @@
 .navbar {
   background-color: #e3f2fd;
 }
+
+.avatar {
+  width: 200px;
+  margin-right: 1em;
+}
