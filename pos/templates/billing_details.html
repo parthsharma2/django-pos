@@ -23,7 +23,9 @@
       </div>
       <div class="card-body">
         {% for product in products %}
-          <a href="#" onclick="" class="btn btn-outline-secondary">{{ product.name }}</a>
+          <a href="#" onclick="addItem({{ product.id }}, '{{ product.name }}', {{ product.price }})" class="btn btn-outline-secondary">
+            {{ product.name }}
+          </a>
         {% endfor %}
       </div>
     </div>
@@ -43,25 +45,13 @@
                     <thead>
                       <tr>
                         <td><strong>Item</strong></td>
-                        <td class="text-center"><strong>Price</strong></td>
-                        <td class="text-center"><strong>Quantity</strong></td>
-                        <td class="text-right"><strong>Totals</strong></td>
+                        <td class="text-right"><strong>Price</strong></td>
                       </tr>
                     </thead>
-                  <tbody>
-                    {% for product in products %}
-                      <tr>
-                        <td>{{ product.name }}</td>
-                        <td class="text-center">₹{{ product.price }}</td>
-                        <td class="text-center">1</td>
-                        <td class="text-right">₹{{ product.price }}</td>
-                      </tr>
-                    {% endfor %}
-                      <tr>
-                        <td class="thick-line"></td>
-                        <td class="thick-line"></td>
-                        <td class="thick-line text-center"><strong>Total</strong></td>
-                        <td class="thick-line text-right">$685.99</td>
+                    <tbody id="summary-table-body">
+                      <tr id="total-tr">
+                        <td class="thick-line text-right"><strong>Total: </strong></td>
+                        <td class="thick-line text-right"><strong>₹0 </strong></td></tr>
                       </tr>
                     </tbody>
                   </table>
@@ -70,8 +60,15 @@
             </div>
           </div>
         </div>
+        <div class="btn-group special" role="group">
+          <button type="button" class="btn btn-success">Bill</button>
+          <button type="button" class="btn" onclick="clearAllItems()">Clear</button>
+          <button type="button" class="btn btn-danger" onclick="location.href='{% url 'billing' %}'">Cancel</button>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<script src="{% static 'js/script.js' %}"
 {% endblock %}

@@ -23,3 +23,11 @@
 .table > tbody > tr > .thick-line {
     border-top: 2px solid;
 }
+
+.btn-group.special {
+  display: flex;
+}
+
+.special .btn {
+  flex: 1
+}
