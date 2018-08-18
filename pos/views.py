@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+
+import json
+
 from .models import Product, Customer, Order, OrderItem
 
 
@@ -17,3 +20,7 @@ def billing(request):
                     'balance' : customer[0].balance,
                     'products': products }
         return render(request, 'billing_details.html', context)
+
+def order(request):
+    if request.method == 'POST':
+        return render(request, 'order.html', json.loads(request.POST.get('data', None)))
