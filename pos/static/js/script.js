@@ -75,3 +75,32 @@ function getTotal(){
 
   return tr_total;
 }
+
+function postOrder(url) {
+  data = {
+    'product_ids' : product_ids,
+    'total_price' : total_price,
+  };
+  // var xhttp = new XMLHttpRequest();
+
+  let csrftoken = document.getElementsByName('csrfmiddlewaretoken')[0];
+
+  // xhttp.open("POST", url, true);
+  // xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  // xhttp.send("csrfmiddlewaretoken=" + csrftoken + "&data=" + JSON.stringify(data));
+
+  let form = document.createElement('form');
+  form.action = url;
+  form.method = "POST";
+
+  let inp = document.createElement('input');
+  inp.type = 'hidden';
+  inp.name = 'data';
+  inp.value = JSON.stringify(data);
+
+  form.appendChild(csrftoken);
+  form.appendChild(inp);
+
+  document.body.appendChild(form);
+  form.submit();
+}
