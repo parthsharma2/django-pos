@@ -17,20 +17,6 @@ function addItem(item_id, item_name, item_price) {
   tr.appendChild(td_name);
   tr.appendChild(td_price);
 
-  // var tr_total = document.createElement('tr');
-  // tr_total.setAttribute('id', 'total-tr')
-  //
-  // var td_total_display = document.createElement('td');
-  // td_total_display.setAttribute('class', 'thick-line text-right');
-  // td_total_display.innerHTML = "<strong>Total: </strong>";
-  //
-  // var td_total_price = document.createElement('td');
-  // td_total_price.setAttribute('class', 'thick-line text-right');
-  // td_total_price.innerHTML = "<strong>₹" + total_price + " </strong>";
-  //
-  // tr_total.appendChild(td_total_display);
-  // tr_total.appendChild(td_total_price);
-
   clearTotal();
 
   tableBody.appendChild(tr);
@@ -81,13 +67,8 @@ function postOrder(url) {
     'product_ids' : product_ids,
     'total_price' : total_price,
   };
-  // var xhttp = new XMLHttpRequest();
 
   let csrftoken = document.getElementsByName('csrfmiddlewaretoken')[0];
-
-  // xhttp.open("POST", url, true);
-  // xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  // xhttp.send("csrfmiddlewaretoken=" + csrftoken + "&data=" + JSON.stringify(data));
 
   let form = document.createElement('form');
   form.action = url;
