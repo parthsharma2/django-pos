@@ -62,8 +62,9 @@ function getTotal(){
   return tr_total;
 }
 
-function postOrder(url) {
+function postOrder(url, cust_id) {
   data = {
+    'customer_id' : cust_id,
     'product_ids' : product_ids,
     'total_price' : total_price,
   };
