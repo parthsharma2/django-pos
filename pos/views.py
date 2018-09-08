@@ -16,11 +16,11 @@ def billing(request):
         cid = request.POST.get('customerID', None)
         customer = Customer.objects.get(pk=cid)
         products = list(Product.objects.all())
-        context = { 'cust_id' : customer.identity,
-                    'name' : customer.name,
-                    'balance' : customer.balance,
-                    'products': products }
-        return render(request, 'billing_details.html', context)
+        # context = { 'cust' : customer.identity,
+        #             'name' : customer.name,
+        #             'balance' : customer.balance,
+        #             'products': products, }
+        return render(request, 'billing_details.html', {'customer': customer, 'products': products})
 
 def order(request):
     if request.method == 'POST':

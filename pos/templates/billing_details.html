@@ -11,9 +11,13 @@
   <div class="col-sm-6">
     <div class="card">
       <div class="card-body">
-        <img class="avatar img-thumbnail float-left img-fluid" src="{% static 'img/profile_placeholder_large.png' %}" style="width: 200px; margin-right: 1em;"/>
-        <h5>{{ name }}</h5>
-        <p class="card-text">Balance: {{ balance }}</p>
+        {% if customer.photo %}
+          <img class="avatar img-thumbnail float-left img-fluid" src="{{ customer.photo.url }}" style="width: 200px; margin-right: 1em;"/>
+        {% else %}
+          <img class="avatar img-thumbnail float-left img-fluid" src="{% static 'img/profile_placeholder_large.png' %}" style="width: 200px; margin-right: 1em;"/>
+        {% endif %}
+        <h5>{{ customer.name }}</h5>
+        <p class="card-text">Balance: {{ customer.balance }}</p>
       </div>
     </div>
 
@@ -62,7 +66,7 @@
         </div>
         <div class="btn-group special" role="group">
           {% csrf_token %}
-          <button type="button" class="btn btn-success" onclick="postOrder('{% url 'order' %}', '{{ cust_id }}')">Bill</button>
+          <button type="button" class="btn btn-success" onclick="postOrder('{% url 'order' %}', '{{ customer.identity }}')">Bill</button>
           <button type="button" class="btn" onclick="clearAllItems()">Clear</button>
           <button type="button" class="btn btn-danger" onclick="location.href='{% url 'billing' %}'">Cancel</button>
         </div>
