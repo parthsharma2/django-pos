@@ -1,6 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-
 import json
 
 from .models import Product, Customer, Order, OrderItem
