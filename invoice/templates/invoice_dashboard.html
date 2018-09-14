@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>Invoice Dashboard - POS System</title>
+{% endblock %}
+
+{% block content %}
+  <h3 class="text-center">Invoice Dashboard</h3>
+  <div class="card-deck">
+    <div class="card">
+      <div class="card-header">
+        <h5>Customer Invoice</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Generate a particular customer's invoice</p>
+        <a href="" class="btn btn-primary">Generate</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h5>Order Invoice</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Generate a particular order's invoice</p>
+        <a href="" class="btn btn-primary">Generate</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

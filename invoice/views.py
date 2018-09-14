@@ -1,3 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def invoice_dash(request):
+    return render(request, 'invoice_dashboard.html')
