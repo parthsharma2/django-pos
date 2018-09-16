@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='customer',
             name='photo',
-            field=models.ImageField(null=True, upload_to=pos.models.cutomer_photo_directory),
+            field=models.ImageField(null=True, upload_to=pos.models.customer_photo_directory),
         ),
     ]
