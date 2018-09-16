@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>Customer Invoice - POS System</title>
+{% endblock %}
+
+{% block content %}
+<h3 class="text-center no-print">Generate Customer Invoice</h3>
+<div class="card no-print">
+  <div class="card-body">
+    <form action="#" method="post">
+      {% csrf_token %}
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Enter Customer ID: </span>
+        </div>
+          <input class="form-control" type="customerID" name="customerID" placeholder="Customer ID"/>
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="submit">Go &raquo;</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="card-deck">
+  <div class="card">
+    <div class="card-body">
+  	  <div class="col-md-12">
+  			<h3 class=""><strong>Customer Invoice</strong></h3>
+        <!-- <div class="row">
+          <div class="col-xs-6 text-left">
+      				<address>
+      				<strong>Billed To:</strong><br />
+      					{{ customer.name }}<br />
+      					1234 Main<br />
+      					Apt. 4B<br />
+      					Springfield, ST 54321<br />
+      				</address>
+              <br />
+      		</div>
+          <div class="col-xs-6 text-right">
+            {% if customer.photo %}
+              <img class="avatar float-right img-thumbnail img-fluid" src="{{ customer.photo.url }}" style="width: 200px; margin-right: 1em;"/>
+            {% endif %}
+          </div>
+        </div> -->
+        <div class="row">
+    			<div class="col-6">
+    				<address>
+    				<strong>Billed To:</strong><br>
+    					{{ customer.name }}<br>
+    				</address>
+    			</div>
+    			<div class="col-6 text-right">
+            {% if customer.photo %}
+              <img class="avatar float-right img-thumbnail img-fluid" src="{{ customer.photo.url }}" style="width: 200px; margin-right: 1em;"/>
+            {% endif %}
+    			</div>
+    		</div>
+  			<div class="card">
+          <div class="card-header">
+            Summary
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+    					<table class="table table-condensed">
+    						<thead>
+                  <tr>
+        						<td><strong>Order No.</strong></td>
+        						<td class="text-center"><strong>Date</strong></td>
+        						<td class="text-right"><strong>Total Price</strong></td>
+                  </tr>
+    						</thead>
+    						<tbody>
+                  {% for order in orders %}
+      							<tr>
+      								<td>#{{ order.id }}</td>
+      								<td class="text-center">{{order.timestamp}}</td>
+      								<td class="text-right">₹{{ order.total_price }}</td>
+      							</tr>
+                  {% endfor %}
+    							<tr>
+    								<td class="thick-line"></td>
+    								<td class="thick-line text-center"><strong>Total</strong></td>
+    								<td class="thick-line text-right">₹{{ total }}</td>
+    							</tr>
+    						</tbody>
+    					</table>
+    				</div>
+          </div>
+  			</div>
+  	  </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

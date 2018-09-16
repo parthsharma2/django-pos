@@ -31,3 +31,9 @@
 .special .btn {
   flex: 1
 }
+
+@media print{
+  .no-print {
+    display: None;
+  }
+}
