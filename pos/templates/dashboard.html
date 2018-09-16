@@ -6,16 +6,23 @@
 
 {% block content %}
   <h3 class="text-center">Dashboard</h3>
-  <div class="row">
-    <div class="col-sm-4">
-      <div class="card">
-        <div class="card-header">
-          <h5>Billing</h5>
-        </div>
-        <div class="card-body">
-          <p class="card-text">Clicking on the button below will lead you to the billing section.</p>
-          <a href="{% url 'billing' %}" class="btn btn-primary">Start Billing</a>
-        </div>
+  <div class="card-deck">
+    <div class="card">
+      <div class="card-header">
+        <h5>Billing</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Clicking on the button below will lead you to the billing section.</p>
+        <a href="{% url 'billing' %}" class="btn btn-primary">Start Billing</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h5>Invoice Generation</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Clicking on the button below will lead you to the invoice generation section.</p>
+        <a href="{% url 'invoice_dashboard' %}" class="btn btn-primary">Generate Invoice</a>
       </div>
     </div>
   </div>
